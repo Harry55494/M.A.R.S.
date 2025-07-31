@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 rich = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

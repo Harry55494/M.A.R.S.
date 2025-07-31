@@ -3,6 +3,8 @@
 
 # M.A.R.S.
 
-### Machine Activity Reporting System
+```diff
+- Machine Activity Reporting System
+```
 
 </div>

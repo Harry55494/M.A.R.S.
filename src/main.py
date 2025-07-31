@@ -1,15 +1,23 @@
-from rich.console import Console
+import concurrent.futures
+import json
+import os
+import time
 
-console = Console()
+from dotenv import load_dotenv
 
-print("\n")
-console.print("M.A.R.S.", style="bold red", justify="center")
-console.print(
-    "Machine Activity Reporting System",
-    justify="center",
-)
-console.print(
-    "v0.0.1-Alpha",
-    justify="center",
-)
-print("\n")
+from display.Formatter import Formatter
+from utils.boot_message import boot_message
+from utils.clear_screen import clear_screen_os
+
+if __name__ == "__main__":
+    load_dotenv()
+    boot_message()
+    if not os.environ.get("MODE") == "development":
+        time.sleep(5)
+
+    formatter = Formatter()
+
+    clear_screen_os()
+
+    formatter.set_data(json.loads(os.environ["SERVICES"]))
+    formatter.format_loop()
