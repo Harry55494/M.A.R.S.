@@ -1,4 +1,3 @@
-import concurrent.futures
 import json
 import os
 import time
@@ -15,9 +14,13 @@ if __name__ == "__main__":
     if not os.environ.get("MODE") == "development":
         time.sleep(5)
 
+    # Initialize the formatter
+
     formatter = Formatter()
 
     clear_screen_os()
+
+    # Start main loop
 
     formatter.set_data(json.loads(os.environ["SERVICES"]))
     formatter.format_loop()
